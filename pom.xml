@@ -57,10 +57,8 @@
         <jaxbVersion>2.3.0.1</jaxbVersion>
         <jsonVersion>20231013</jsonVersion>
         <jul-to-slf4jVersion>2.0.12</jul-to-slf4jVersion>
-        <junitVersion>4.13.2</junitVersion>
         <log4j-to-slf4jVersion>2.23.1</log4j-to-slf4jVersion>
         <logback-classicVersion>1.5.6</logback-classicVersion>
-        <poiVersion>5.2.5</poiVersion>
         <springframeworkVersion>5.3.33</springframeworkVersion>
         <velocityVersion>1.7</velocityVersion>
         <xmlgraphicscommonsVersion>2.9</xmlgraphicscommonsVersion>
@@ -209,13 +207,6 @@
                 <optional>true</optional>
             </dependency>
             <dependency>
-                <groupId>org.apache.poi</groupId>
-                <artifactId>poi</artifactId>
-                <version>${poiVersion}</version>
-                <scope>runtime</scope>
-                <optional>true</optional>
-            </dependency>
-            <dependency>
                 <groupId>org.hsqldb</groupId>
                 <artifactId>hsqldb</artifactId>
                 <version>${hsqldbVersion}</version>
@@ -254,9 +245,9 @@
                 <version>1.2.0</version>
             </dependency>
             <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junitVersion}</version>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>5.11.0</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
