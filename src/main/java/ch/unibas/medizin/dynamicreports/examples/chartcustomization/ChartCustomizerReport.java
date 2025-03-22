@@ -34,6 +34,7 @@ import org.jfree.chart.axis.CategoryLabelPositions;
 import org.jfree.chart.renderer.category.BarRenderer;
 
 import java.awt.Color;
+import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -101,7 +102,8 @@ public class ChartCustomizerReport {
         return dataSource;
     }
 
-    private class ChartCustomizer implements DRIChartCustomizer, Serializable {
+    private static class ChartCustomizer implements DRIChartCustomizer, Serializable {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override

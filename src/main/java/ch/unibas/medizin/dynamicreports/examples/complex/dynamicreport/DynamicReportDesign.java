@@ -48,7 +48,7 @@ import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.typ
  * 
  */
 public class DynamicReportDesign {
-    private DynamicReportData data = new DynamicReportData();
+    private final DynamicReportData data = new DynamicReportData();
 
     /**
      * <p>main.</p>
@@ -79,7 +79,7 @@ public class DynamicReportDesign {
 
         DynamicReport dynamicReport = data.getDynamicReport();
         List<DynamicColumn> columns = dynamicReport.getColumns();
-        Map<String, TextColumnBuilder> drColumns = new HashMap<String, TextColumnBuilder>();
+        Map<String, TextColumnBuilder> drColumns = new HashMap<>();
 
         for (DynamicColumn column : columns) {
             TextColumnBuilder drColumn = col.column(column.getTitle(), column.getName(), (DRIDataType) type.detectType(column.getType()));

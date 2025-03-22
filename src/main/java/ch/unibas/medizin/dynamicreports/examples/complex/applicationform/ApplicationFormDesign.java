@@ -50,7 +50,7 @@ public class ApplicationFormDesign {
     private static final int cellWidth = 18;
     private static final int cellHeight = 18;
 
-    private ApplicationFormData data = new ApplicationFormData();
+    private final ApplicationFormData data = new ApplicationFormData();
 
     private StyleBuilder textStyle;
     private StyleBuilder centeredStyle;
@@ -128,29 +128,26 @@ public class ApplicationFormDesign {
 
     private HorizontalListBuilder dateOfBirth(Date dateOfBirth) {
         String date = new SimpleDateFormat("MM/dd/yyyy").format(dateOfBirth);
-        HorizontalListBuilder list = cmp.horizontalList()
+        return cmp.horizontalList()
                                         .add(label("Date Of Birth", 5))
                                         .add(textCell(StringUtils.substringBefore(date, "/"), 2), label("/", 1, centeredStyle))
                                         .add(textCell(StringUtils.substringBetween(date, "/"), 2), label("/", 1, centeredStyle))
                                         .add(textCell(StringUtils.substringAfterLast(date, "/"), 4));
-        return list;
     }
 
     private HorizontalListBuilder gender(Gender gender) {
-        HorizontalListBuilder list = cmp.horizontalList()
+        return cmp.horizontalList()
                                         .add(label("Gender", 3))
                                         .add(textCell(gender.equals(Gender.MALE) ? "X" : "", 1), label("Male", 2, textStyle))
                                         .add(textCell(gender.equals(Gender.FEMALE) ? "X" : "", 1), label("Female", 3, textStyle));
-        return list;
     }
 
     private HorizontalListBuilder maritalStatus(MaritalStatus maritalStatus) {
-        HorizontalListBuilder list = cmp.horizontalList()
+        return cmp.horizontalList()
                                         .add(label("Marital status", 5))
                                         .add(textCell(maritalStatus.equals(MaritalStatus.SINGLE) ? "X" : "", 1), label("Single", 3, textStyle))
                                         .add(textCell(maritalStatus.equals(MaritalStatus.MARRIED) ? "X" : "", 1), label("Married", 3, textStyle))
                                         .add(textCell(maritalStatus.equals(MaritalStatus.DIVORCED) ? "X" : "", 1), label("Divorced", 3, textStyle));
-        return list;
     }
 
     private FillerBuilder emptyCell(int size) {

@@ -32,6 +32,7 @@ import ch.unibas.medizin.dynamicreports.report.constant.HorizontalTextAlignment;
 import ch.unibas.medizin.dynamicreports.report.definition.ReportParameters;
 import ch.unibas.medizin.dynamicreports.report.exception.DRException;
 
+import java.io.Serial;
 import java.math.BigDecimal;
 
 import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.cmp;
@@ -50,7 +51,7 @@ import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.typ
  * 
  */
 public class InvoiceDesign {
-    private InvoiceData data = new InvoiceData();
+    private final InvoiceData data = new InvoiceData();
     private AggregationSubtotalBuilder<BigDecimal> totalSum;
 
     /**
@@ -139,6 +140,7 @@ public class InvoiceDesign {
     }
 
     private class TotalPaymentExpression extends AbstractSimpleExpression<String> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override

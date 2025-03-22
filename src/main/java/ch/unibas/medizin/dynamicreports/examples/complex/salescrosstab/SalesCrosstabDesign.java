@@ -36,6 +36,7 @@ import ch.unibas.medizin.dynamicreports.report.definition.ReportParameters;
 import ch.unibas.medizin.dynamicreports.report.exception.DRException;
 
 import java.awt.Color;
+import java.io.Serial;
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
@@ -54,7 +55,7 @@ import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.stl
  * 
  */
 public class SalesCrosstabDesign {
-    private SalesCrosstabData data = new SalesCrosstabData();
+    private final SalesCrosstabData data = new SalesCrosstabData();
 
     /**
      * <p>main.</p>
@@ -116,24 +117,26 @@ public class SalesCrosstabDesign {
         return report;
     }
 
-    private class YearExpression extends AbstractSimpleExpression<Integer> {
+    private static class YearExpression extends AbstractSimpleExpression<Integer> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override
         public Integer evaluate(ReportParameters reportParameters) {
             Calendar c = Calendar.getInstance();
-            c.setTime((Date) reportParameters.getValue("orderdate"));
+            c.setTime(reportParameters.getValue("orderdate"));
             return c.get(Calendar.YEAR);
         }
     }
 
-    private class QuarterExpression extends AbstractSimpleExpression<String> {
+    private static class QuarterExpression extends AbstractSimpleExpression<String> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override
         public String evaluate(ReportParameters reportParameters) {
             Calendar c = Calendar.getInstance();
-            c.setTime((Date) reportParameters.getValue("orderdate"));
+            c.setTime(reportParameters.getValue("orderdate"));
             return "Q" + (c.get(Calendar.MONTH) / 3 + 1);
         }
     }

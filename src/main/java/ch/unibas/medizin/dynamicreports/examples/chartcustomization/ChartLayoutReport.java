@@ -27,6 +27,7 @@ import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.rep
 import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.stl;
 import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.type;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -108,7 +109,8 @@ public class ChartLayoutReport {
         return dataSource;
     }
 
-    private class ChartCustomizer implements DRIChartCustomizer, Serializable {
+    private static class ChartCustomizer implements DRIChartCustomizer, Serializable {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override

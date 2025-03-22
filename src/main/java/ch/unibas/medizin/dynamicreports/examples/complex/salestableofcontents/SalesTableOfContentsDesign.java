@@ -48,6 +48,7 @@ import ch.unibas.medizin.dynamicreports.report.definition.ReportParameters;
 import ch.unibas.medizin.dynamicreports.report.exception.DRException;
 
 import java.awt.Color;
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -69,7 +70,7 @@ import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.var
  * 
  */
 public class SalesTableOfContentsDesign {
-    private SalesTableOfContentsData data = new SalesTableOfContentsData();
+    private final SalesTableOfContentsData data = new SalesTableOfContentsData();
 
     /**
      * <p>main.</p>
@@ -121,17 +122,18 @@ public class SalesTableOfContentsDesign {
         return report;
     }
 
-    private class PageHeaderExpression extends AbstractSimpleExpression<String> {
+    private static class PageHeaderExpression extends AbstractSimpleExpression<String> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override
         public String evaluate(ReportParameters reportParameters) {
-            DRICustomValues customValues = (DRICustomValues) reportParameters.getParameterValue(DRICustomValues.NAME);
+            DRICustomValues customValues = reportParameters.getParameterValue(DRICustomValues.NAME);
             Map<String, JasperTocHeading> tocHeadings = customValues.getTocHeadings();
             if (tocHeadings.isEmpty()) {
                 return "";
             }
-            List<JasperTocHeading> headings = new ArrayList<JasperTocHeading>(tocHeadings.values());
+            List<JasperTocHeading> headings = new ArrayList<>(tocHeadings.values());
             for (int i = headings.size() - 1; i >= 0; i--) {
                 JasperTocHeading jasperTocHeading = headings.get(i);
                 if (jasperTocHeading.getLevel() == 0) {
@@ -142,7 +144,8 @@ public class SalesTableOfContentsDesign {
         }
     }
 
-    private class CustomTableOfContentsCustomizer extends TableOfContentsCustomizer {
+    private static class CustomTableOfContentsCustomizer extends TableOfContentsCustomizer {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override
@@ -189,6 +192,7 @@ public class SalesTableOfContentsDesign {
         }
 
         private final class CountryExpression extends AbstractComplexExpression<String> {
+            @Serial
             private static final long serialVersionUID = 1L;
 
             private String value;
@@ -209,6 +213,7 @@ public class SalesTableOfContentsDesign {
         }
 
         private final class CountryHeadingExpression extends AbstractComplexExpression<String> {
+            @Serial
             private static final long serialVersionUID = 1L;
 
             private CountryHeadingExpression() {

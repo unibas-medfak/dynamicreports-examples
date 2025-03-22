@@ -35,6 +35,7 @@ import ch.unibas.medizin.dynamicreports.report.definition.ReportParameters;
 import ch.unibas.medizin.dynamicreports.report.exception.DRException;
 import net.sf.jasperreports.engine.JRDataSource;
 
+import java.io.Serial;
 import java.math.BigDecimal;
 
 import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.cmp;
@@ -138,7 +139,8 @@ public class MeasureExpressionCrosstabReport {
         return dataSource;
     }
 
-    private class PriceExpression extends AbstractSimpleExpression<BigDecimal> {
+    private static class PriceExpression extends AbstractSimpleExpression<BigDecimal> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override
@@ -150,6 +152,7 @@ public class MeasureExpressionCrosstabReport {
     }
 
     private class PriceMeasure1Expression extends AbstractSimpleExpression<BigDecimal> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override
@@ -161,6 +164,7 @@ public class MeasureExpressionCrosstabReport {
     }
 
     private class PriceMeasure2Expression extends AbstractSimpleExpression<BigDecimal> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override

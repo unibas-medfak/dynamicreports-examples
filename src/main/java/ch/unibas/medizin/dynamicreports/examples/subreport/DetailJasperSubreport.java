@@ -33,6 +33,7 @@ import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperReport;
 
 import java.io.InputStream;
+import java.io.Serial;
 import java.math.BigDecimal;
 import java.util.stream.IntStream;
 
@@ -86,7 +87,8 @@ public class DetailJasperSubreport {
         return JasperCompileManager.compileReport(is);
     }
 
-    private class SubreportDataSourceExpression extends AbstractSimpleExpression<JRDataSource> {
+    private static class SubreportDataSourceExpression extends AbstractSimpleExpression<JRDataSource> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override

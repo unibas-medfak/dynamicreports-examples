@@ -27,6 +27,7 @@ import ch.unibas.medizin.dynamicreports.report.definition.ReportParameters;
 import ch.unibas.medizin.dynamicreports.report.exception.DRException;
 import net.sf.jasperreports.engine.JRDataSource;
 
+import java.io.Serial;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -78,7 +79,8 @@ public class ComplexExpressionReport {
         return dataSource;
     }
 
-    private class ComplexExpression extends AbstractComplexExpression<BigDecimal> {
+    private static class ComplexExpression extends AbstractComplexExpression<BigDecimal> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         public ComplexExpression() {

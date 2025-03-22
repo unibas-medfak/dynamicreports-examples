@@ -32,6 +32,7 @@ import ch.unibas.medizin.dynamicreports.report.definition.ReportParameters;
 import ch.unibas.medizin.dynamicreports.report.exception.DRException;
 import net.sf.jasperreports.engine.JRDataSource;
 
+import java.io.Serial;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -97,7 +98,8 @@ public class VariableReport {
         return dataSource;
     }
 
-    private class QuantitySumTextExpression extends AbstractSimpleExpression<String> {
+    private static class QuantitySumTextExpression extends AbstractSimpleExpression<String> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override
@@ -107,7 +109,8 @@ public class VariableReport {
         }
     }
 
-    private class UnitPriceSumTextExpression extends AbstractComplexExpression<String> {
+    private static class UnitPriceSumTextExpression extends AbstractComplexExpression<String> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         public UnitPriceSumTextExpression(TextColumnBuilder<BigDecimal> unitPriceColumn) {
@@ -116,16 +119,17 @@ public class VariableReport {
 
         @Override
         public String evaluate(List<?> values, ReportParameters reportParameters) {
-            BigDecimal unitPriceSum = (BigDecimal) values.get(0);
+            BigDecimal unitPriceSum = (BigDecimal) values.getFirst();
             return "Unit price sum = " + type.bigDecimalType().valueToString(unitPriceSum, reportParameters.getLocale());
         }
     }
 
-    private class PriceExpression extends AbstractSimpleExpression<BigDecimal> {
+    private static class PriceExpression extends AbstractSimpleExpression<BigDecimal> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
-        private TextColumnBuilder<Integer> quantityColumn;
-        private TextColumnBuilder<BigDecimal> unitPriceColumn;
+        private final TextColumnBuilder<Integer> quantityColumn;
+        private final TextColumnBuilder<BigDecimal> unitPriceColumn;
 
         public PriceExpression(TextColumnBuilder<Integer> quantityColumn, TextColumnBuilder<BigDecimal> unitPriceColumn) {
             this.quantityColumn = quantityColumn;

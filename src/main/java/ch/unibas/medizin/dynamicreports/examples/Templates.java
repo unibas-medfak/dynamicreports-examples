@@ -32,6 +32,7 @@ import ch.unibas.medizin.dynamicreports.report.constant.VerticalTextAlignment;
 import ch.unibas.medizin.dynamicreports.report.definition.ReportParameters;
 
 import java.awt.Color;
+import java.io.Serial;
 import java.util.Locale;
 
 import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.cmp;
@@ -179,6 +180,7 @@ public class Templates {
     }
 
     public static class CurrencyType extends BigDecimalType {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override
@@ -187,10 +189,11 @@ public class Templates {
         }
     }
 
-    private static class CurrencyValueFormatter extends AbstractValueFormatter<String, Number> {
+    public static class CurrencyValueFormatter extends AbstractValueFormatter<String, Number> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
-        private String label;
+        private final String label;
 
         public CurrencyValueFormatter(String label) {
             this.label = label;

@@ -40,9 +40,9 @@ public class DynamicReport {
      * <p>Constructor for DynamicReport.</p>
      */
     public DynamicReport() {
-        columns = new ArrayList<DynamicColumn>();
-        groups = new ArrayList<String>();
-        subtotals = new ArrayList<String>();
+        columns = new ArrayList<>();
+        groups = new ArrayList<>();
+        subtotals = new ArrayList<>();
     }
 
     /**

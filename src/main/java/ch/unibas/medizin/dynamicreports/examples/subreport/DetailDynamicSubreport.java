@@ -30,6 +30,7 @@ import ch.unibas.medizin.dynamicreports.report.exception.DRException;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 
+import java.io.Serial;
 import java.util.stream.IntStream;
 
 import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.cmp;
@@ -79,7 +80,8 @@ public class DetailDynamicSubreport {
         return new JREmptyDataSource(5);
     }
 
-    private class SubreportExpression extends AbstractSimpleExpression<JasperReportBuilder> {
+    private static class SubreportExpression extends AbstractSimpleExpression<JasperReportBuilder> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override
@@ -94,7 +96,8 @@ public class DetailDynamicSubreport {
         }
     }
 
-    private class SubreportDataSourceExpression extends AbstractSimpleExpression<JRDataSource> {
+    private static class SubreportDataSourceExpression extends AbstractSimpleExpression<JRDataSource> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override

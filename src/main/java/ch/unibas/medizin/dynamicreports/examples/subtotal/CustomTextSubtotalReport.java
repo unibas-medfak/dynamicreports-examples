@@ -35,7 +35,9 @@ import ch.unibas.medizin.dynamicreports.report.definition.ReportParameters;
 import ch.unibas.medizin.dynamicreports.report.exception.DRException;
 import net.sf.jasperreports.engine.JRDataSource;
 
+import java.io.Serial;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.cmp;
 import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.col;
@@ -121,11 +123,12 @@ public class CustomTextSubtotalReport {
         return dataSource;
     }
 
-    private class CustomTextSubtotal extends AbstractSimpleExpression<String> {
+    private static class CustomTextSubtotal extends AbstractSimpleExpression<String> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
-        private VariableBuilder<Integer> quantitySum;
-        private VariableBuilder<BigDecimal> priceSum;
+        private final VariableBuilder<Integer> quantitySum;
+        private final VariableBuilder<BigDecimal> priceSum;
 
         public CustomTextSubtotal(VariableBuilder<Integer> quantitySum, VariableBuilder<BigDecimal> priceSum) {
             this.quantitySum = quantitySum;
@@ -136,7 +139,7 @@ public class CustomTextSubtotalReport {
         public String evaluate(ReportParameters reportParameters) {
             Integer quantitySumValue = reportParameters.getValue(quantitySum);
             BigDecimal priceSumValue = reportParameters.getValue(priceSum);
-            BigDecimal unitPriceSbt = priceSumValue.divide(BigDecimal.valueOf(quantitySumValue), 2, BigDecimal.ROUND_HALF_UP);
+            BigDecimal unitPriceSbt = priceSumValue.divide(BigDecimal.valueOf(quantitySumValue), 2, RoundingMode.HALF_UP);
             return "sum(quantity) = " + type.integerType().valueToString(quantitySum, reportParameters) + ", " + "sum(price) = " + type.bigDecimalType().valueToString(priceSum, reportParameters) +
                 ", " + "sum(price) / sum(quantity) = " + type.bigDecimalType().valueToString(unitPriceSbt, reportParameters.getLocale());
         }

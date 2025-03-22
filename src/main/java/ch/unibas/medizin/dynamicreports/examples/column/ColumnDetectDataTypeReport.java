@@ -81,7 +81,7 @@ public class ColumnDetectDataTypeReport {
     }
 
     private List<Column> createColumns() {
-        List<Column> columns = new ArrayList<Column>();
+        List<Column> columns = new ArrayList<>();
         columns.add(new Column("Item", "item", "string")); // dataType = "String", "STRING", "java.lang.String", "text"
         columns.add(new Column("Quantity", "quantity", "integer")); // dataType = "Integer", "INTEGER", "java.lang.Integer"
         columns.add(new Column("Unit price", "unitprice", "bigDecimal")); // dataType = "bigdecimal", "BIGDECIMAL", "java.math.BigDecimal"
@@ -93,15 +93,6 @@ public class ColumnDetectDataTypeReport {
         return columns;
     }
 
-    private final class Column {
-        private String title;
-        private String field;
-        private String dataType;
-
-        private Column(String title, String field, String dataType) {
-            this.title = title;
-            this.field = field;
-            this.dataType = dataType;
-        }
+    private record Column(String title, String field, String dataType) {
     }
 }

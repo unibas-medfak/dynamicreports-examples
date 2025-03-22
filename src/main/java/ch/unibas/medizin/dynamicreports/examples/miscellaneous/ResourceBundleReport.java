@@ -31,6 +31,7 @@ import ch.unibas.medizin.dynamicreports.report.definition.ReportParameters;
 import ch.unibas.medizin.dynamicreports.report.exception.DRException;
 import net.sf.jasperreports.engine.JRDataSource;
 
+import java.io.Serial;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -93,7 +94,8 @@ public class ResourceBundleReport {
         return dataSource;
     }
 
-    public class SubtitleExpression extends AbstractComplexExpression<String> {
+    public static class SubtitleExpression extends AbstractComplexExpression<String> {
+        @Serial
         private static final long serialVersionUID = Constants.SERIAL_VERSION_UID;
 
         public SubtitleExpression() {

@@ -32,6 +32,7 @@ import ch.unibas.medizin.dynamicreports.report.exception.DRException;
 import net.sf.jasperreports.engine.JRDataSource;
 
 import java.awt.Color;
+import java.io.Serial;
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
@@ -118,7 +119,8 @@ public class CustomTableOfContentsReport {
         return c.getTime();
     }
 
-    private class CustomTableOfContentsCustomizer extends TableOfContentsCustomizer {
+    private static class CustomTableOfContentsCustomizer extends TableOfContentsCustomizer {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override

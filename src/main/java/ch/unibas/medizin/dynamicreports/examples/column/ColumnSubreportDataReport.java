@@ -30,6 +30,7 @@ import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.data.JRMapCollectionDataSource;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -82,17 +83,17 @@ public class ColumnSubreportDataReport {
     }
 
     private JRDataSource createDataSource() {
-        List<ReportData> datasource = new ArrayList<ReportData>();
+        List<ReportData> datasource = new ArrayList<>();
 
         ReportData data = new ReportData();
-        List<Map<String, Object>> comments = new ArrayList<Map<String, Object>>();
-        Map<String, Object> values = new HashMap<String, Object>();
+        List<Map<String, Object>> comments = new ArrayList<>();
+        Map<String, Object> values = new HashMap<>();
         values.put("comment", "comment1");
         comments.add(values);
-        values = new HashMap<String, Object>();
+        values = new HashMap<>();
         values.put("comment", "comment2");
         comments.add(values);
-        values = new HashMap<String, Object>();
+        values = new HashMap<>();
         values.put("comment", "comment3");
         comments.add(values);
         data.setItem("Book");
@@ -101,11 +102,11 @@ public class ColumnSubreportDataReport {
         datasource.add(data);
 
         data = new ReportData();
-        comments = new ArrayList<Map<String, Object>>();
-        values = new HashMap<String, Object>();
+        comments = new ArrayList<>();
+        values = new HashMap<>();
         values.put("comment", "comment1");
         comments.add(values);
-        values = new HashMap<String, Object>();
+        values = new HashMap<>();
         values.put("comment", "comment2");
         comments.add(values);
         data.setItem("Notebook");
@@ -116,17 +117,18 @@ public class ColumnSubreportDataReport {
         return new JRBeanCollectionDataSource(datasource);
     }
 
-    private class SubreportDesign extends AbstractSimpleExpression<JasperReportBuilder> {
+    private static class SubreportDesign extends AbstractSimpleExpression<JasperReportBuilder> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override
         public JasperReportBuilder evaluate(ReportParameters reportParameters) {
-            JasperReportBuilder report = report().columns(col.column("comment", type.stringType()));
-            return report;
+            return report().columns(col.column("comment", type.stringType()));
         }
     }
 
-    private class SubreportData extends AbstractSimpleExpression<JRDataSource> {
+    private static class SubreportData extends AbstractSimpleExpression<JRDataSource> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override
@@ -136,7 +138,7 @@ public class ColumnSubreportDataReport {
         }
     }
 
-    public class ReportData {
+    public static class ReportData {
         private String item;
         private Integer quantity;
         private List<Map<String, Object>> comments;

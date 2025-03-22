@@ -89,20 +89,20 @@ public class CollectionDatasourceReport {
     }
 
     private JRDataSource createDataSource() {
-        List<Data> data = new ArrayList<Data>();
+        List<Data> data = new ArrayList<>();
 
-        List<SubData> subData = new ArrayList<SubData>();
+        List<SubData> subData = new ArrayList<>();
         subData.add(new SubData(toDate(2011, 0, 10), 2));
         subData.add(new SubData(toDate(2011, 0, 15), 3));
         data.add(new Data("DVD", 5, BigDecimal.valueOf(30), subData));
 
-        subData = new ArrayList<SubData>();
+        subData = new ArrayList<>();
         subData.add(new SubData(toDate(2011, 0, 11), 1));
         subData.add(new SubData(toDate(2011, 0, 12), 3));
         subData.add(new SubData(toDate(2011, 0, 16), 4));
         data.add(new Data("Book", 8, BigDecimal.valueOf(11), subData));
 
-        subData = new ArrayList<SubData>();
+        subData = new ArrayList<>();
         subData.add(new SubData(toDate(2011, 0, 9), 1));
         subData.add(new SubData(toDate(2011, 0, 18), 1));
         data.add(new Data("PDA", 2, BigDecimal.valueOf(15), subData));
@@ -118,7 +118,7 @@ public class CollectionDatasourceReport {
         return c.getTime();
     }
 
-    public class Data {
+    public static class Data {
         private String item;
         private Integer quantity;
         private BigDecimal unitPrice;
@@ -164,7 +164,7 @@ public class CollectionDatasourceReport {
         }
     }
 
-    public class SubData {
+    public static class SubData {
         private Date orderDate;
         private Integer quantity;
 

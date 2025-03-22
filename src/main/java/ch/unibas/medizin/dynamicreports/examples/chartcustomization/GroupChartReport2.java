@@ -33,6 +33,7 @@ import ch.unibas.medizin.dynamicreports.report.definition.ReportParameters;
 import ch.unibas.medizin.dynamicreports.report.exception.DRException;
 import net.sf.jasperreports.engine.JRDataSource;
 
+import java.io.Serial;
 import java.util.List;
 
 import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.cht;
@@ -107,7 +108,8 @@ public class GroupChartReport2 {
         return dataSource;
     }
 
-    private class ChartTitleExpression extends AbstractComplexExpression<String> {
+    private static class ChartTitleExpression extends AbstractComplexExpression<String> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         public ChartTitleExpression(TextColumnBuilder<String> stockColumn) {
@@ -116,7 +118,7 @@ public class GroupChartReport2 {
 
         @Override
         public String evaluate(List<?> values, ReportParameters reportParameters) {
-            return (String) values.get(0);
+            return (String) values.getFirst();
         }
     }
 }

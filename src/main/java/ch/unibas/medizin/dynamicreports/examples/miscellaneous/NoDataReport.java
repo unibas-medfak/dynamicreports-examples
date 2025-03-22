@@ -74,8 +74,7 @@ public class NoDataReport {
     }
 
     private JRDataSource createDataSource() {
-        DRDataSource dataSource = new DRDataSource("item", "quantity", "unitprice");
         // dataSource.add("Book", 10, BigDecimal.valueOf(100));
-        return dataSource;
+        return new DRDataSource("item", "quantity", "unitprice");
     }
 }

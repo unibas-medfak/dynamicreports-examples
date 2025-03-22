@@ -35,7 +35,9 @@ import ch.unibas.medizin.dynamicreports.report.definition.ReportParameters;
 import ch.unibas.medizin.dynamicreports.report.exception.DRException;
 import net.sf.jasperreports.engine.JRDataSource;
 
+import java.io.Serial;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.cmp;
@@ -127,7 +129,8 @@ public class CustomPercentageCrosstabReport {
         return dataSource;
     }
 
-    private final class PercentageExpression extends AbstractComplexExpression<BigDecimal> {
+    private static final class PercentageExpression extends AbstractComplexExpression<BigDecimal> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         private PercentageExpression(CrosstabMeasureBuilder<BigDecimal> unitPriceMeasure, CrosstabColumnGroupBuilder<String> columnGroup) {
@@ -139,7 +142,7 @@ public class CustomPercentageCrosstabReport {
         public BigDecimal evaluate(List<?> values, ReportParameters reportParameters) {
             BigDecimal unitPrice = (BigDecimal) values.get(0);
             BigDecimal unitPriceTotal = (BigDecimal) values.get(1);
-            return unitPrice.divide(unitPriceTotal, 4, BigDecimal.ROUND_HALF_UP).multiply(BigDecimal.valueOf(100));
+            return unitPrice.divide(unitPriceTotal, 4, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100));
         }
     }
 }

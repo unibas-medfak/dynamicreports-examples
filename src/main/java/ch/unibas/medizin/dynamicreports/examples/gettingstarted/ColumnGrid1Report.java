@@ -25,6 +25,8 @@ import ch.unibas.medizin.dynamicreports.report.datasource.DRDataSource;
 import ch.unibas.medizin.dynamicreports.report.exception.DRException;
 import net.sf.jasperreports.engine.JRDataSource;
 
+import java.util.Arrays;
+
 import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.cmp;
 import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.col;
 import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.grid;
@@ -84,9 +86,7 @@ public class ColumnGrid1Report {
         DRDataSource dataSource = new DRDataSource(columns);
         for (int i = 1; i <= 5; i++) {
             Object[] row = new Object[columnsCount];
-            for (int j = 0; j < columnsCount; j++) {
-                row[j] = "row " + i;
-            }
+            Arrays.fill(row, "row " + i);
             dataSource.add(row);
         }
         return dataSource;

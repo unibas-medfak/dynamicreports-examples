@@ -31,6 +31,7 @@ import ch.unibas.medizin.dynamicreports.report.exception.DRException;
 import net.sf.jasperreports.engine.JRDataSource;
 
 import java.awt.Color;
+import java.io.Serial;
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
@@ -113,6 +114,7 @@ public class ConditionalStyleReport {
     }
 
     private class OrderDateConditionExpression extends AbstractSimpleExpression<Boolean> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override

@@ -28,6 +28,7 @@ import ch.unibas.medizin.dynamicreports.report.definition.ReportParameters;
 import ch.unibas.medizin.dynamicreports.report.exception.DRException;
 import net.sf.jasperreports.engine.JRDataSource;
 
+import java.io.Serial;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -92,7 +93,8 @@ public class ConversionColumnReport {
         return dataSource;
     }
 
-    private class OrderDateColumn1 extends AbstractSimpleExpression<Date> {
+    private static class OrderDateColumn1 extends AbstractSimpleExpression<Date> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override
@@ -107,7 +109,8 @@ public class ConversionColumnReport {
         }
     }
 
-    private class OrderDateColumn2 extends AbstractSimpleExpression<Date> {
+    private static class OrderDateColumn2 extends AbstractSimpleExpression<Date> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override
@@ -121,7 +124,8 @@ public class ConversionColumnReport {
         }
     }
 
-    private class QuantityColumn1 extends AbstractSimpleExpression<BigDecimal> {
+    private static class QuantityColumn1 extends AbstractSimpleExpression<BigDecimal> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override
@@ -137,7 +141,8 @@ public class ConversionColumnReport {
         }
     }
 
-    private class QuantityColumn2 extends AbstractSimpleExpression<BigDecimal> {
+    private static class QuantityColumn2 extends AbstractSimpleExpression<BigDecimal> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override

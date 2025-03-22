@@ -85,7 +85,7 @@ public class InheritanceReport {
      * wisdom to avoid creating non-final private classes.
      */
     private class ReportA {
-        protected JasperReportBuilder report = report();
+        protected final JasperReportBuilder report = report();
 
         private ReportA() {
             configure();

@@ -52,7 +52,7 @@ import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.typ
  * 
  */
 public class SalesDesign {
-    private SalesData data = new SalesData();
+    private final SalesData data = new SalesData();
 
     /**
      * <p>main.</p>

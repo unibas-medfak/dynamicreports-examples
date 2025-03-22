@@ -35,6 +35,8 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.data.statistics.BoxAndWhiskerItem;
 import org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset;
 
+import java.io.Serial;
+
 import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.cmp;
 import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.col;
 import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.report;
@@ -47,7 +49,7 @@ import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.typ
  * 
  */
 public class CustomChartReport {
-    private DefaultBoxAndWhiskerCategoryDataset dataset = new DefaultBoxAndWhiskerCategoryDataset();
+    private final DefaultBoxAndWhiskerCategoryDataset dataset = new DefaultBoxAndWhiskerCategoryDataset();
 
     /**
      * <p>Constructor for CustomChartReport.</p>
@@ -127,6 +129,7 @@ public class CustomChartReport {
     }
 
     private class ChartExpression extends AbstractSimpleExpression<Renderable> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override

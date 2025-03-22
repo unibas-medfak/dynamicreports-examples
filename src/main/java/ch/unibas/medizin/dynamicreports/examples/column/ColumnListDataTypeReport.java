@@ -70,10 +70,10 @@ public class ColumnListDataTypeReport {
     }
 
     private JRDataSource createDataSource() {
-        List<ReportData> datasource = new ArrayList<ReportData>();
+        List<ReportData> datasource = new ArrayList<>();
 
         ReportData data = new ReportData();
-        List<String> comments = new ArrayList<String>();
+        List<String> comments = new ArrayList<>();
         comments.add("comment1");
         comments.add("comment2");
         comments.add("comment3");
@@ -83,7 +83,7 @@ public class ColumnListDataTypeReport {
         datasource.add(data);
 
         data = new ReportData();
-        comments = new ArrayList<String>();
+        comments = new ArrayList<>();
         comments.add("comment1");
         comments.add("comment2");
         data.setItem("Notebook");
@@ -94,7 +94,7 @@ public class ColumnListDataTypeReport {
         return new JRBeanCollectionDataSource(datasource);
     }
 
-    public class ReportData {
+    public static class ReportData {
         private String item;
         private Integer quantity;
         private List<String> comments;

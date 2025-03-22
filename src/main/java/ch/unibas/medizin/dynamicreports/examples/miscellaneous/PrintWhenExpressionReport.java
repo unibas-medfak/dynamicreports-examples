@@ -33,6 +33,7 @@ import ch.unibas.medizin.dynamicreports.report.definition.ReportParameters;
 import ch.unibas.medizin.dynamicreports.report.exception.DRException;
 import net.sf.jasperreports.engine.JRDataSource;
 
+import java.io.Serial;
 import java.math.BigDecimal;
 import java.util.stream.IntStream;
 
@@ -105,7 +106,8 @@ public class PrintWhenExpressionReport {
         return dataSource;
     }
 
-    public class GroupHeaderExpression extends AbstractSimpleExpression<String> {
+    public static class GroupHeaderExpression extends AbstractSimpleExpression<String> {
+        @Serial
         private static final long serialVersionUID = Constants.SERIAL_VERSION_UID;
 
         @Override
@@ -114,7 +116,8 @@ public class PrintWhenExpressionReport {
         }
     }
 
-    public class PrintGroupHeaderExpression extends AbstractSimpleExpression<Boolean> {
+    public static class PrintGroupHeaderExpression extends AbstractSimpleExpression<Boolean> {
+        @Serial
         private static final long serialVersionUID = Constants.SERIAL_VERSION_UID;
 
         @Override
@@ -123,7 +126,8 @@ public class PrintWhenExpressionReport {
         }
     }
 
-    public class PrintGroupHeaderColumnBreakExpression extends AbstractSimpleExpression<Boolean> {
+    public static class PrintGroupHeaderColumnBreakExpression extends AbstractSimpleExpression<Boolean> {
+        @Serial
         private static final long serialVersionUID = Constants.SERIAL_VERSION_UID;
 
         @Override
@@ -132,7 +136,8 @@ public class PrintWhenExpressionReport {
         }
     }
 
-    public class PrintInOddPageExpression extends AbstractSimpleExpression<Boolean> {
+    public static class PrintInOddPageExpression extends AbstractSimpleExpression<Boolean> {
+        @Serial
         private static final long serialVersionUID = Constants.SERIAL_VERSION_UID;
 
         @Override
@@ -141,7 +146,8 @@ public class PrintWhenExpressionReport {
         }
     }
 
-    public class PrintInEvenPageExpression extends AbstractSimpleExpression<Boolean> {
+    public static class PrintInEvenPageExpression extends AbstractSimpleExpression<Boolean> {
+        @Serial
         private static final long serialVersionUID = Constants.SERIAL_VERSION_UID;
 
         @Override

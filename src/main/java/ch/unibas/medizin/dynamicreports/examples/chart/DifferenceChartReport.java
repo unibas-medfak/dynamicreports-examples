@@ -29,7 +29,6 @@ import ch.unibas.medizin.dynamicreports.report.exception.DRException;
 import net.sf.jasperreports.engine.JRDataSource;
 
 import java.util.Calendar;
-import java.util.Date;
 
 import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.cht;
 import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.report;
@@ -69,10 +68,10 @@ public class DifferenceChartReport {
                     .summary(cht.differenceChart()
                                 .setTitle("Difference chart")
                                 .setTitleFont(boldFont)
-                                .setTimePeriod(DynamicReports.<Date>field("date", type.dateType()))
+                                .setTimePeriod(DynamicReports.field("date", type.dateType()))
                                 .setTimePeriodType(TimePeriod.DAY)
-                                .series(cht.serie(DynamicReports.<Number>field("value1", type.doubleType())).setLabel("Value1"),
-                                        cht.serie(DynamicReports.<Number>field("value2", type.doubleType())).setLabel("Value2"))
+                                .series(cht.serie(DynamicReports.field("value1", type.doubleType())).setLabel("Value1"),
+                                        cht.serie(DynamicReports.field("value2", type.doubleType())).setLabel("Value2"))
                                 .setTimeAxisFormat(cht.axisFormat().setLabel("Date")))
                     .pageFooter(Templates.footerComponent)
                     .setDataSource(createDataSource())

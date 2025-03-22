@@ -34,7 +34,7 @@ import java.util.List;
  * 
  */
 public class InvoiceData {
-    private Invoice invoice;
+    private final Invoice invoice;
 
     /**
      * <p>Constructor for InvoiceData.</p>
@@ -52,7 +52,7 @@ public class InvoiceData {
         invoice.setBillTo(createCustomer("Mary Patterson", "151 Pompton St.", "Washington", "mpatterson@noemail.com"));
         invoice.setShipTo(createCustomer("Peter Marsh", "23 Baden Av.", "New York", null));
 
-        List<Item> items = new ArrayList<Item>();
+        List<Item> items = new ArrayList<>();
         items.add(createItem("Notebook", 1, BigDecimal.valueOf(1000)));
         items.add(createItem("DVD", 5, BigDecimal.valueOf(40)));
         items.add(createItem("Book", 2, BigDecimal.valueOf(10)));

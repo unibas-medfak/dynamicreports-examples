@@ -78,9 +78,7 @@ public class XmlDatasourceReport {
                     .pageFooter(Templates.footerComponent)
                     .setDataSource(dataSource)
                     .show();
-        } catch (DRException e) {
-            e.printStackTrace();
-        } catch (JRException e) {
+        } catch (DRException | JRException e) {
             e.printStackTrace();
         }
     }

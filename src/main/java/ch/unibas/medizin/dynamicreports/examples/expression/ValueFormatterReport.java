@@ -27,6 +27,7 @@ import ch.unibas.medizin.dynamicreports.report.definition.ReportParameters;
 import ch.unibas.medizin.dynamicreports.report.exception.DRException;
 import net.sf.jasperreports.engine.JRDataSource;
 
+import java.io.Serial;
 import java.math.BigDecimal;
 
 import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.col;
@@ -80,6 +81,7 @@ public class ValueFormatterReport {
     }
 
     private static class ValueFormatter extends AbstractValueFormatter<String, Number> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override

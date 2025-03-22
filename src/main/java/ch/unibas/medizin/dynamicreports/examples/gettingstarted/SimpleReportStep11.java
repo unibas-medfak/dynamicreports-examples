@@ -35,6 +35,7 @@ import ch.unibas.medizin.dynamicreports.report.exception.DRException;
 import net.sf.jasperreports.engine.JRDataSource;
 
 import java.awt.Color;
+import java.io.Serial;
 import java.math.BigDecimal;
 
 import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.cht;
@@ -139,7 +140,8 @@ public class SimpleReportStep11 {
         return dataSource;
     }
 
-    private class CurrencyType extends BigDecimalType {
+    private static class CurrencyType extends BigDecimalType {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override

@@ -68,7 +68,7 @@ public class ChartSeriesColorsByNameReport {
         TextColumnBuilder<String> itemColumn = col.column("Item", "item", type.stringType());
         TextColumnBuilder<Integer> quantityColumn = col.column("Quantity", "quantity", type.integerType());
 
-        Map<String, Color> seriesColors = new HashMap<String, Color>();
+        Map<String, Color> seriesColors = new HashMap<>();
         seriesColors.put("Tablet", Color.BLUE);
         seriesColors.put("Smartphone", Color.GREEN);
         seriesColors.put("Laptop", Color.MAGENTA);

@@ -42,7 +42,6 @@ import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.typ
  * 
  */
 public class PercentageColumnsReport {
-    private FieldBuilder<BigDecimal> unitPriceField;
 
     /**
      * <p>Constructor for PercentageColumnsReport.</p>
@@ -62,7 +61,7 @@ public class PercentageColumnsReport {
 
     private void build() {
         try {
-            unitPriceField = field("unitprice", BigDecimal.class);
+            FieldBuilder<BigDecimal> unitPriceField = field("unitprice", BigDecimal.class);
 
             TextColumnBuilder<String> itemColumn = col.column("Item", "item", type.stringType());
             TextColumnBuilder<Integer> quantityColumn = col.column("Quantity", "quantity", type.integerType());

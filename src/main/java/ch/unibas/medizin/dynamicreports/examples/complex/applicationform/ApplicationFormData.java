@@ -31,7 +31,7 @@ import java.util.Calendar;
  * 
  */
 public class ApplicationFormData {
-    private ApplicationForm applicationForm;
+    private final ApplicationForm applicationForm;
 
     /**
      * <p>Constructor for ApplicationFormData.</p>

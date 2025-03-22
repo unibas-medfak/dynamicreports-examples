@@ -30,7 +30,9 @@ import ch.unibas.medizin.dynamicreports.report.definition.ReportParameters;
 import ch.unibas.medizin.dynamicreports.report.exception.DRException;
 import net.sf.jasperreports.engine.JRDataSource;
 
+import java.io.Serial;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.col;
 import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.report;
@@ -97,13 +99,14 @@ public class CustomSubtotalReport {
     }
 
     private class UnitPriceSubtotal extends AbstractSimpleExpression<BigDecimal> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         @Override
         public BigDecimal evaluate(ReportParameters reportParameters) {
             Integer quantitySumValue = reportParameters.getValue(quantitySum);
             BigDecimal priceSumValue = reportParameters.getValue(priceSum);
-            return priceSumValue.divide(BigDecimal.valueOf(quantitySumValue), 2, BigDecimal.ROUND_HALF_UP);
+            return priceSumValue.divide(BigDecimal.valueOf(quantitySumValue), 2, RoundingMode.HALF_UP);
         }
     }
 }
