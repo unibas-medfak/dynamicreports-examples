@@ -76,9 +76,8 @@ public class ApplicationFormDesign {
      * <p>build.</p>
      *
      * @return a {@link ch.unibas.medizin.dynamicreports.jasper.builder.JasperReportBuilder} object.
-     * @throws ch.unibas.medizin.dynamicreports.report.exception.DRException if any.
      */
-    public JasperReportBuilder build() throws DRException {
+    public JasperReportBuilder build() {
         JasperReportBuilder report = report();
 
         ApplicationForm applicationForm = data.getApplicationForm();

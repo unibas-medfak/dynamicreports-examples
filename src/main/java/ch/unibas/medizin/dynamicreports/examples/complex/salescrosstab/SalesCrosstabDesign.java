@@ -76,9 +76,8 @@ public class SalesCrosstabDesign {
      * <p>build.</p>
      *
      * @return a {@link ch.unibas.medizin.dynamicreports.jasper.builder.JasperReportBuilder} object.
-     * @throws ch.unibas.medizin.dynamicreports.report.exception.DRException if any.
      */
-    public JasperReportBuilder build() throws DRException {
+    public JasperReportBuilder build() {
         JasperReportBuilder report = report();
 
         CrosstabRowGroupBuilder<String> rowStateGroup = ctab.rowGroup("state", String.class).setHeaderWidth(80);
