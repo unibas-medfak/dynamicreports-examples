@@ -36,11 +36,8 @@ import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.typ
 
 /**
  * <p>EncryptedPdfReport class.</p>
- * 
- * Please ensure you have write-access to local disc C:\ before running this example
  *
  * @author Ricardo Mariaca
- * 
  */
 public class EncryptedPdfReport {
 
@@ -62,7 +59,7 @@ public class EncryptedPdfReport {
 
     private void build() {
         try {
-            JasperPdfExporterBuilder pdfExporter = export.pdfExporter("c:/report.pdf").setEncrypted(true).setUserPassword("1234");
+            JasperPdfExporterBuilder pdfExporter = export.pdfExporter("report.pdf").setEncrypted(true).setUserPassword("1234");
 
             report().setTemplate(Templates.reportTemplate)
                     .columns(col.column("Item", "item", type.stringType()), col.column("Quantity", "quantity", type.integerType()), col.column("Unit price", "unitprice", type.bigDecimalType()))

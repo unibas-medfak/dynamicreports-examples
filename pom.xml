@@ -45,5 +45,11 @@
             <artifactId>log4j-core</artifactId>
             <version>2.24.3</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk18on</artifactId>
+            <version>1.80</version>
+        </dependency>
     </dependencies>
 </project>

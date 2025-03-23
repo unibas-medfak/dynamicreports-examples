@@ -40,10 +40,7 @@ import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.typ
 /**
  * <p>ConcatenatedReport2 class.</p>
  *
- * Please ensure you have write access on local disc c:\ before running this example
- *
  * @author Ricardo Mariaca
- * 
  */
 public class ConcatenatedReport2 {
 

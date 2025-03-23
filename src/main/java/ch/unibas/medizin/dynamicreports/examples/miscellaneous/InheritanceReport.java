@@ -42,10 +42,7 @@ import static ch.unibas.medizin.dynamicreports.report.builder.DynamicReports.typ
 /**
  * <p>InheritanceReport class.</p>
  *
- * Please ensure you have write access on local disc c:\ before running this example
- *
  * @author Ricardo Mariaca
- * 
  */
 public class InheritanceReport {
 
