@@ -21,7 +21,7 @@
 package ch.unibas.medizin.dynamicreports.examples.exporter;
 
 import ch.unibas.medizin.dynamicreports.examples.Templates;
-import ch.unibas.medizin.dynamicreports.jasper.builder.export.JasperXlsExporterBuilder;
+import ch.unibas.medizin.dynamicreports.jasper.builder.export.JasperXlsxExporterBuilder;
 import ch.unibas.medizin.dynamicreports.jasper.constant.JasperProperty;
 import ch.unibas.medizin.dynamicreports.report.datasource.DRDataSource;
 import ch.unibas.medizin.dynamicreports.report.exception.DRException;
@@ -61,8 +61,8 @@ public class ExcelReport1 {
 
     private void build() {
         try {
-            JasperXlsExporterBuilder xlsExporter =
-                export.xlsExporter("report.xls").setDetectCellType(true).setIgnorePageMargins(true).setWhitePageBackground(false).setRemoveEmptySpaceBetweenColumns(true);
+            JasperXlsxExporterBuilder xlsxExporter =
+                export.xlsxExporter("report.xlsx").setDetectCellType(true).setIgnorePageMargins(true).setWhitePageBackground(false).setRemoveEmptySpaceBetweenColumns(true);
 
             report().setColumnTitleStyle(Templates.columnTitleStyle)
                     .addProperty(JasperProperty.EXPORT_XLS_FREEZE_ROW, "2")
@@ -70,7 +70,7 @@ public class ExcelReport1 {
                     .ignorePagination()
                     .columns(col.column("Item", "item", type.stringType()), col.column("Quantity", "quantity", type.integerType()), col.column("Unit price", "unitprice", type.bigDecimalType()))
                     .setDataSource(createDataSource())
-                    .toXls(xlsExporter);
+                    .toXlsx(xlsxExporter);
         } catch (DRException e) {
             e.printStackTrace();
         }
