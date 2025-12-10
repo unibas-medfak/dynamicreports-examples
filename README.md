@@ -90,7 +90,7 @@ dynamicreports-examples/
 This project uses the following main dependencies:
 
 - **DynamicReports Core** (7.0.3) - The core reporting library
-- **JasperReports** (7.0.3) - The underlying reporting engine
+- **JasperReports Jaxen** (7.0.3) - XPath support for JasperReports
 - **HSQLDB** (2.7.4) - In-memory database for examples
 - **Apache Log4j** (2.25.2) - Logging framework
 - **BouncyCastle** (1.83) - For encrypted PDF examples
