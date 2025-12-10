@@ -101,8 +101,8 @@ This project is licensed under the GNU Lesser General Public License v3.0 (LGPL-
 
 ## Resources
 
-- **DynamicReports Core**: [unibas-medfak/dynamicreports-core](https://github.com/unibas-medfak/dynamicreports-core)
-- **DynamicReports**: http://www.dynamicreports.org/
+- **DynamicReports Core**: https://github.com/unibas-medfak/dynamicreports-core
+- **DynamicReports**: http://www.dynamicreports.org
 - **JasperReports**: https://community.jaspersoft.com/project/jasperreports-library
 
 ## Contributing
