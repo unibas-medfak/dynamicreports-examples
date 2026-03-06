@@ -52,7 +52,7 @@ mvn clean install
 Each example is a standalone Java class with a `main` method. You can run any example directly from your IDE or using Maven:
 
 ```bash
-mvn exec:java -Dexec.mainClass="ch.unibas.medizin.dynamicreports.examples.gettingstarted.SimpleReportStep01"
+mvn exec:exec -Dexec.mainClass="ch.unibas.medizin.dynamicreports.examples.gettingstarted.SimpleReportStep01"
 ```
 
 Replace the class name with any other example class you want to run.
@@ -89,8 +89,8 @@ dynamicreports-examples/
 
 This project uses the following main dependencies:
 
-- **DynamicReports Core** (7.0.3) - The core reporting library
-- **JasperReports Jaxen** (7.0.3) - XPath support for JasperReports
+- **DynamicReports Core** (7.0.4) - The core reporting library
+- **JasperReports Jaxen** (7.0.4) - XPath support for JasperReports
 - **HSQLDB** (2.7.4) - In-memory database for examples
 - **Apache Log4j** (2.25.2) - Logging framework
 - **BouncyCastle** (1.83) - For encrypted PDF examples
