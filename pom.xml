@@ -6,7 +6,7 @@
 
     <groupId>ch.unibas.medizin</groupId>
     <artifactId>dynamicreports-examples</artifactId>
-    <version>7.0.4</version>
+    <version>7.0.5</version>
     <packaging>jar</packaging>
 
     <name>DynamicReports Examples</name>
