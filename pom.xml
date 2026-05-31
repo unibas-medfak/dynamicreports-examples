@@ -116,5 +116,19 @@
             <version>5.20.0</version>
             <scope>test</scope>
         </dependency>
+
+        <!--
+            Bundles the DejaVu TrueType fonts so the baseline test renders text from a fixed font
+            instead of whatever the host happens to have installed. The font-alias extension under
+            src/test/resources maps the families the examples use (Arial, SansSerif, ...) onto these
+            TTFs, making the rendered images reproducible across macOS, Linux and CI. Test scope only:
+            the published examples keep their normal host-font behaviour.
+        -->
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports-fonts</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 </project>

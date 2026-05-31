@@ -101,3 +101,7 @@ DerivedData
 !default.perspectivev3
 
 report.*
+
+# ...but the committed text baselines under report-baselines/ must be tracked (the scratch
+# report.html/report.pdf an example writes to the repo root stay ignored by the rule above).
+!src/test/resources/report-baselines/**/report.html
