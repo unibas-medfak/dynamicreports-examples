@@ -46,6 +46,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 import java.util.TimeZone;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -107,6 +108,17 @@ class ExampleBaselineTest {
     private static final double MAX_DIFF_RATIO = Double.parseDouble(System.getProperty("report.baseline.maxDiffRatio", "0.0"));
 
     /**
+     * Higher tolerance applied <em>only</em> to the JFreeChart-based examples (the {@code chart} and
+     * {@code chartcustomization} packages). Their rasterised output carries tiny antialiasing
+     * differences across platforms (&le;~1.2% of pixels on the Linux CI runner) that the bundled font
+     * extension cannot remove; every other example stays pixel-exact at {@link #MAX_DIFF_RATIO}.
+     */
+    private static final double CHART_MAX_DIFF_RATIO = Double.parseDouble(System.getProperty("report.baseline.chartMaxDiffRatio", "0.02"));
+
+    /** Top-level packages whose examples render charts and therefore compare with {@link #CHART_MAX_DIFF_RATIO}. */
+    private static final Set<String> CHART_PACKAGES = Set.of("chart", "chartcustomization");
+
+    /**
      * Examples that never call {@code show()} but export a deterministic text file we can baseline as
      * text instead of as a rendered image. Maps the example's relative name to the file it writes
      * (relative to the working directory). The HTML export is reproducible because locale, clock and
@@ -161,11 +173,12 @@ class ExampleBaselineTest {
             failWithActual(example, actual, "page count changed: baseline has %d page(s), now %d".formatted(existingBaselines, actual.size()));
         }
 
+        final double maxDiffRatio = maxDiffRatioFor(example);
         final List<String> failures = new ArrayList<>();
         for (int page = 0; page < actual.size(); page++) {
             final Path baselineFile = exampleDir.resolve(pageFileName(page));
             final BufferedImage baseline = ReportBaselines.read(baselineFile);
-            final Comparison comparison = ReportBaselines.compare(baseline, actual.get(page), COLOR_TOLERANCE, MAX_DIFF_RATIO);
+            final Comparison comparison = ReportBaselines.compare(baseline, actual.get(page), COLOR_TOLERANCE, maxDiffRatio);
             if (!comparison.match()) {
                 writeFailureArtifacts(example, page, actual.get(page), comparison.diffImage());
                 failures.add("page %d: %s".formatted(page + 1, comparison.detail()));
@@ -309,6 +322,14 @@ class ExampleBaselineTest {
 
     private static String relativeName(Class<?> example) {
         return example.getName().substring(EXAMPLES_PACKAGE.length() + 1).replace('.', '/');
+    }
+
+    /** The tolerated differing-pixel ratio for an example: relaxed for chart packages, strict otherwise. */
+    private static double maxDiffRatioFor(Class<?> example) {
+        final String relative = relativeName(example);
+        final int slash = relative.indexOf('/');
+        final String topPackage = slash < 0 ? "" : relative.substring(0, slash);
+        return CHART_PACKAGES.contains(topPackage) ? CHART_MAX_DIFF_RATIO : MAX_DIFF_RATIO;
     }
 
     private static String pageFileName(int pageIndex) {
