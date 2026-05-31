@@ -27,7 +27,6 @@ import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
 
 import java.io.InputStream;
 import java.math.BigDecimal;
@@ -88,7 +87,7 @@ public class JasperSubreport {
     }
 
     private JasperReport getJasperSummarySubreport() throws JRException {
-        InputStream is = JasperSubreport.class.getResourceAsStream("summarysubreport.jasper");
-        return (JasperReport) JRLoader.loadObject(is);
+        InputStream is = JasperSubreport.class.getResourceAsStream("summarysubreport.jrxml");
+        return JasperCompileManager.compileReport(is);
     }
 }

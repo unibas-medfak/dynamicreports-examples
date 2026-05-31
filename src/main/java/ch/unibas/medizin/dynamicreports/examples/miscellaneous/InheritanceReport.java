@@ -64,7 +64,7 @@ public class InheritanceReport {
 
     private void build() {
         try {
-            concatenatedReport().concatenate(new ReportA().report, new ReportB().report).toPdf(Exporters.pdfExporter("c:/report.pdf"));
+            concatenatedReport().concatenate(new ReportA().report, new ReportB().report).toPdf(Exporters.pdfExporter("report.pdf"));
         } catch (DRException e) {
             e.printStackTrace();
         }

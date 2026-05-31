@@ -62,7 +62,7 @@ public class ConcatenatedReport2 {
 
     private void build() {
         try {
-            concatenatedReport().continuousPageNumbering().concatenate(createReport(PageType.A4), createReport(PageType.A3), createReport(PageType.A5)).toPdf(Exporters.pdfExporter("c:/report.pdf"));
+            concatenatedReport().continuousPageNumbering().concatenate(createReport(PageType.A4), createReport(PageType.A3), createReport(PageType.A5)).toPdf(Exporters.pdfExporter("report.pdf"));
         } catch (DRException e) {
             e.printStackTrace();
         }
